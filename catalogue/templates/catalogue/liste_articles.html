@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Liste des Articles</title>
+</head>
+<body>
+	<h1>Articles disponibles</h1>
+	<ul>
+		{% for articles in articles %}
+			<li>{{ article.nom }} - {{ article.prix }} €</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>
