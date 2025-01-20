@@ -8,12 +8,12 @@
 	<h1>Articles disponibles</h1>
 	{% if latest_articles_list %}
 	<ul>
-	{% for Article in last_articles_list %}
-		<li><a href="{% url 'listing:details' Article.id%}">{{ Article.nom }}</a></li>
+	{% for article in latest_articles_list %}
+		<li><a href="{% url 'catalogue:details' article.id %}">{{ article.nom }}</a></li>
 	{% endfor %}
 	</ul>
 {% else %}
-		<p>Aucun article disponible</p>
-	{% endif %}
+	<p>Aucun article disponible</p>
+{% endif %}
 </body>
 </html>
