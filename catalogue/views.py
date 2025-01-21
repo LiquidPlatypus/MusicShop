@@ -1,16 +1,17 @@
 from django.shortcuts import render, get_object_or_404
+from django.views import generic
 from .models import Article
 
-def listing(request):
-	latest_articles_list = Article.objects.order_by('-date_ajout')[:5]
-	context = {
-		"latest_articles_list": latest_articles_list,
-	}
-	return render(request, 'catalogue/listing.html', context)
+class ListingView(generic.ListView):
+	template_name = 'catalogue/listing.html'
+	context_object_name = 'latest_articles_list'
+	
+	def get_queryset(self):
+		return Article.objects.order_by('-date_ajout')[:5]
 
-def details(request, article_id):
-	article = get_object_or_404(Article, pk=article_id)
-	return render(request, 'catalogue/details.html', {'article': article})
+class DetailsView(generic.DetailView):
+	model = Article
+	template_name = 'catalogue/details.html'
 
 def article_page(request, article_id):
 	article = get_object_or_404(Article, pk=article_id)
