@@ -12,11 +12,13 @@
 <body>
 	<h1>Articles disponibles</h1>
 	{% if latest_articles_list %}
-	<ul>
-	{% for article in latest_articles_list %}
-		<li><a href="{% url 'catalogue:details' article.id %}">{{ article.nom }}</a></li>
-	{% endfor %}
-	</ul>
+	<div class="wrapper">
+		<div>One</div>
+		<div>Two</div>
+		<div>Three</div>
+		<div>Four</div>
+		<div>Five</div>
+	</div>
 {% else %}
 	<p>Aucun article disponible</p>
 {% endif %}
