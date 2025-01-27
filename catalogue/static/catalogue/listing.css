@@ -8,9 +8,10 @@ h1 {
 	text-align: center;
 }
 
-.wrapper {
+.listing {
+	list-style: none;
+	margin: 2em;
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	column-gap: 10px;
-	row-gap: 1em;
+	gap: 20px;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
