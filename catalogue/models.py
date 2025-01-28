@@ -4,6 +4,7 @@ from django.utils import timezone
 
 class Article(models.Model):
 	nom = models.CharField(max_length=255)
+	photo = models.ImageField(upload_to='photos/%Y/%m/%d/', default="catalogue/img/default.jpg")
 	description = models.TextField()
 	prix = models.DecimalField(max_digits=10, decimal_places=2)
 	stock = models.IntegerField()

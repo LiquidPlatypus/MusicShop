@@ -12,22 +12,19 @@
 <body>
 	<h1>Articles disponibles</h1>
 	{% if latest_articles_list %}
-	<ul class="listing">
-		{%  for article in latest_articles_list %}
-			<li>
-				<div class="body">
-					<a href="{% url 'catalogue:details' article.id %}">{{ article.nom }}<img src="../../static/img/ph_guitar1.png" alt="Placeholder Guitar 1"></a>
-				</div>
-			</li>
-			<li>
-				<div>
-					<img  src="../../static/img/ph_guitar2.jpg" alt="Placeholder Guitar 2">
-				</div>
-			</li>
-		{% endfor %}
-	</ul>
-{% else %}
-	<p>Aucun article disponible</p>
-{% endif %}
+		<ul class="listing">
+			{% for article in latest_articles_list %}
+				<li>
+					<div class="body">
+						<a href="{% url 'catalogue:details' article.id %}">
+							<img class="img" src="{% static article.photo %}" alt="{{ article.nom }}">
+						</a>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>Aucun article disponible</p>
+	{% endif %}
 </body>
 </html>

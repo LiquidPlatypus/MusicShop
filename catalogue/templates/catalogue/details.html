@@ -1,17 +1,22 @@
-<!DOCTYPE html>                <a href="{% url 'catalogue:details' artic
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'catalogue/details.css' %}">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
 	{{ article }}
 </head>
 <body>
-    <form action="{% url 'catalogue:article_page' article.id %}" method="post">
-        {% csrf_token %}
-        <fieldset>
-            <legend><h1>{{ article.description }}</h1></legend>
-            <legend><h1>{{  article.prix }}</h1></legend>
-        </fieldset>
-    </form>
+	<form action="{% url 'catalogue:article_page' article.id %}" method="post">
+		{% csrf_token %}
+		<fieldset>
+			<legend><h1>{{ article.description }}</h1></legend>
+			<legend><h1>{{  article.prix }}</h1></legend>
+		</fieldset>
+	</form>
 </body>
 </html>
