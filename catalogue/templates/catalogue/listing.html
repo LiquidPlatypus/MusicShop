@@ -17,7 +17,7 @@
 				<li>
 					<div class="body">
 						<a href="{% url 'catalogue:details' article.id %}">
-							<img class="img" src="{{ article.photo }}" alt="{{ article.nom }}">
+							<img class="img" src="{{ article.get_photo_url }}" alt="{{ article.nom }}">
 							<div><p>{{ article.nom }}</p></div>
 						</a>
 					</div>

@@ -1,12 +1,14 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
+from django.templatetags.static import static
 
 import os
 
 class Article(models.Model):
 	nom = models.CharField(max_length=255)
-	photo = models.ImageField(upload_to='photos/', default="/static/img/default.jpg")
+	photo = models.ImageField(upload_to='photos/', blank=True, null=True)
 	description = models.TextField()
 	prix = models.DecimalField(max_digits=10, decimal_places=2)
 	stock = models.IntegerField()
@@ -20,6 +22,8 @@ class Article(models.Model):
 		return now - datetime.timedelta(days=1) <= self.date_ajout <= now
 
 
-#	@property
-#	def image(self):
-#		return self.photo.url
+	@property
+	def get_photo_url(self):
+		if self.photo:
+			return self.photo.url
+		return static('catalogue/img/default.jpg')
