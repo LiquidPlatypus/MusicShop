@@ -24,6 +24,6 @@ class Article(models.Model):
 
 	@property
 	def get_photo_url(self):
-		if self.photo:
+		if self.photo and self.photo.url.startswith('/media/'):
 			return self.photo.url
 		return static('catalogue/img/default.jpg')
