@@ -13,10 +13,8 @@
 <body>
 	<form action="{% url 'catalogue:article_page' article.id %}" method="post">
 		{% csrf_token %}
-		<fieldset>
-			<legend><h1>{{ article.description }}</h1></legend>
-			<legend><h1>{{  article.prix }}</h1></legend>
-		</fieldset>
+			<h1>{{ article.description }}</h1>
+			<h1>{{  article.prix }}</h1>
 	</form>
 </body>
 </html>
